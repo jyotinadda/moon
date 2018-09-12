@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Moon</title>
+		<style>
+			body{
+				background:#ddd;
+				margin:0 auto;
+				width:80%;
+			}
+			#my-canvas{
+				background:#000;
+			}
+		</style>
+		<script>
+			var posX=0;
+			var twopi=Math.PI/2;
+			var start=2;
+			function draw()
+			{
+				var ctx=document.getElementById('my-canvas').getContext('2d');
+				
+				setInterval(function(){
+					posX+=100;
+					ctx.fillStyle="rgba(0,0,0,0.98)";
+					ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+					ctx.fillStyle="white";
+					ctx.beginPath();
+					ctx.arc(posX,100,20,start+=0.1,twopi,true);
+					ctx.fill();
+					start++;
+				},250);
+				
+			}
+			
+			window.onload= draw;
+		</script>
+	</head>
+	<body>
+		<canvas id="my-canvas" width="1000" height="400">
+	</body>
+</html>
